@@ -67,13 +67,22 @@
             bottom: 0;
         }
 
+		.code-comp {
+			display: flex;
+			justify-content: space-between;
+		}
+
         .code {
             background-color: #1e1e1e;
             color: #dcdcdc;
             font-family: 'Consolas', 'Courier New', monospace;
-            margin: 0;
             padding: 0;
+			width: 50%;
+            margin: 0;
         }
+
+		.left { margin-right: 1em; }
+		.right { margin-left: 1em; }
 
         pre {
             padding: 16px;
@@ -85,6 +94,7 @@
         .string { color: #d69d85; }
         .comment { color: #6a9955; }
         .number { color: #b5cea8; }
+        .tag {color: #569cd6;}
 	</style>
 </head>
 <body>
@@ -98,6 +108,7 @@
 	<div class="container">
 		<a href="#home">Home</a>
 		<a href="#overview">Overview</a>
+		<a href="#install">Install</a>
 		<a href="#docs">Docs</a>
 		<a href="#blog">Blog</a>
 		<a href="#about">About</a>
@@ -122,13 +133,13 @@
 			the entire sync package.
 		</p>
 		<p>
-			To demonstrate why this is useful, observe the following Go program which starts a goroutine that counts to
-			ten and then returns.
+			This means that we can translate the following Go code on the left to the following Java code on the right.
 		</p>
-		<div class="code">
+		<div class="code-comp">
+		<div class="code left">
 <pre>
 <code>
-// <span class="comment">Sample Go program that starts a goroutine which counts to 10 and then returns.</span>
+// <span class="comment">Sample Go program that starts a goroutine which counts to 10.</span>
 <span class="keyword">package</span> <span class="type">main</span>
 
 <span class="keyword">import</span> (
@@ -152,10 +163,7 @@
 </code>
 </pre>
 		</div>
-		<p>
-			By leveraging the JavaGo library, this program can be easily translated to Java as shown below.
-		</p>
-		<div class="code">
+		<div class="code right">
 <pre>
 <code>
 <span class="keyword">import</span> io.javago.sync.WaitGroup;
@@ -182,10 +190,31 @@
 </code>
 </pre>
 		</div>
+		</div>
 		<p>
-			This means that we are now able to write a multithreaded Java program without touching the
-			<code>Thread</code> class or <code>java.util.concurrent</code> package at all.
+			We are now able to write a multithreaded Java program without touching the <code>Thread</code> class or
+			<code>java.util.concurrent</code> package at all. This makes multithreaded programming in Java much simpler
+			and easier.
 		</p>
+	</section>
+
+	<section id="install">
+		<h1>Install</h1>
+		<p>
+			To use this library, please add the following lines to the <code>dependencies</code> section
+			of your pom.xml file.
+		</p>
+		<div class="code">
+<pre>
+<code>
+<span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>io.javago<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>javago<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>1.0.0<span class="tag">&lt;/version&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span>
+</code>
+</pre>
+		</div>
 	</section>
 
 	<section id="docs">
